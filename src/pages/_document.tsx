@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+          <link rel="shortcut icon" type="image/png" href="favicon.png" />
           <meta name="theme-color" content="#F2F3F5" />
           <meta name="description" content="Focus Tracker" />
 
