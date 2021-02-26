@@ -60,6 +60,7 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
 
   background: ${props => props.theme.colors.blue};
   color: ${props => props.theme.colors.white};
+  border-bottom: 4px solid ${props => props.theme.colors.blue};
 
   font-size: 1.25rem;
   font-weight: 600;
@@ -67,15 +68,18 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
 
   &:not(:disabled):hover {
     background: ${props => props.theme.colors.blueDark};
+    border-bottom: 4px solid ${props => props.theme.colors.blueDark};
   }
 
   ${props => props.isActive && css`
     background: ${props => props.theme.colors.white};
     color: ${props => props.theme.colors.title};
+    border-bottom: 4px solid ${props => props.theme.colors.white};
 
     &:not(:disabled):hover {
       background: ${props => props.theme.colors.red};
       color: ${props => props.theme.colors.white};
+      border-bottom: 4px solid ${props => props.theme.colors.red};
     }
   `}
 
@@ -83,5 +87,10 @@ export const CountdownButton = styled.button<CountdownButtonProps>`
     background: ${props => props.theme.colors.white};
     color: ${props => props.theme.colors.text};
     cursor: not-allowed;
+    border-bottom: 4px solid ${props => props.theme.colors.green}
+  }
+
+  img {
+    margin-left: 0.5rem;
   }
 `;

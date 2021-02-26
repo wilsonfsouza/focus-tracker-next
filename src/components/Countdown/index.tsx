@@ -52,7 +52,8 @@ const Countdown: React.FunctionComponent = () => {
 
       { hasFinished ? (
         <CountdownButton disabled>
-          Done!
+          Done
+          <img src="icons/check_circle.svg" alt="Completed Cycle" />
         </CountdownButton>
       ) : (
           <>
