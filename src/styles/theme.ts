@@ -10,7 +10,8 @@ const theme = {
     green: '#4CD62B',
     blue: '#5965E0',
     blueDark: '#4953B8',
-    blueTwitter: '#2AA9E0'
+    blueTwitter: '#2AA9E0',
+    borderBottom: '#D7D8DA'
   }
 }
 
