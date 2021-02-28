@@ -1,16 +1,16 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from '../styles/global';
-import theme from '../styles/theme';
+
+import AppProvider from '../contexts';
 
 const MyApp: React.FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <AppProvider>
       <Component {...pageProps} />
       <GlobalStyle />
-    </ThemeProvider>
+    </AppProvider>
   );
 }
 
