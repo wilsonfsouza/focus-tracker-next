@@ -20,12 +20,15 @@ export const Container = styled.header`
       height: 4px;
       border-radius: 4px;
       background: ${props => props.theme.colors.green};
+      transition: width 0.5s ease;
     }
 
     span {
       position: absolute;
       top: 12px;
       transform: translateX(-50%);
+      transition: left 0.5s ease;
+      width: fit-content;
     }
   }
 `;

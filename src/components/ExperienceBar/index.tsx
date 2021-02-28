@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
 import { Container } from '../../styles/components/ExperienceBar';
@@ -6,7 +6,13 @@ import { Container } from '../../styles/components/ExperienceBar';
 const ExperienceBar: React.FunctionComponent = () => {
   const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
 
-  const percentToNextLevel = Math.round(currentExperience * 100) / experienceToNextLevel;
+  const [percentToNextLevel, setPercentToNextLevel] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPercentToNextLevel(Math.round(currentExperience * 100) / experienceToNextLevel)
+    }, 100);
+  }, [currentExperience]);
 
   return (
     <Container>
