@@ -9,9 +9,10 @@ import Profile from '../components/Profile';
 import ChallengeBox from '../components/ChallengeBox';
 
 
-import { Container, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
+import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
+import SideBar from '../components/SideBar';
 
 interface HomeProps {
   level: number;
@@ -30,21 +31,26 @@ const Home: React.FunctionComponent<HomeProps> = ({ level, currentExperience, ch
         <Head>
           <title>Home | Focus Tracker</title>
         </Head>
-        <ExperienceBar />
 
-        <CountdownProvider>
-          <Section>
-            <LeftContainer>
-              <Profile />
-              <CompletedChallenges />
-              <CountDown />
-            </LeftContainer>
+        <SideBar />
+        <Main>
+          <ExperienceBar />
 
-            <RightContainer>
-              <ChallengeBox />
-            </RightContainer>
-          </Section>
-        </CountdownProvider>
+          <CountdownProvider>
+            <Section>
+              <LeftContainer>
+                <Profile />
+                <CompletedChallenges />
+                <CountDown />
+              </LeftContainer>
+
+              <RightContainer>
+                <ChallengeBox />
+              </RightContainer>
+            </Section>
+          </CountdownProvider>
+        </Main>
+
       </Container>
     </ChallengesProvider>
   )
