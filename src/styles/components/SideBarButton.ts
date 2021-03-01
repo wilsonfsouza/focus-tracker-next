@@ -29,7 +29,7 @@ export const Container = styled.a<ContainerProps>`
   @media (max-width: 980px) {
     display: flex;
     flex-direction: row;
-    height: 90px;
+    height: 10vh;
     width: 90px;
 
     & + a {

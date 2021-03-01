@@ -18,8 +18,8 @@ export const Container = styled.aside`
   }
 
   @media (max-width: 980px) {
+    height: 10vh;
     width: 100%;
-    height: 90px;
     bottom: 0;
     left: 0;
 

@@ -4,7 +4,12 @@ interface CountdownButtonProps {
   isActive?: boolean;
 }
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (max-width: 980px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+`;
 
 export const CountdownContainer = styled.div`
   display: flex;

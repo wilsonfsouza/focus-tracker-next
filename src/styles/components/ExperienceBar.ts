@@ -31,4 +31,8 @@ export const Container = styled.header`
       width: fit-content;
     }
   }
+
+  @media (max-width: 980px) {
+    margin-bottom: 3.5rem;
+  }
 `;
