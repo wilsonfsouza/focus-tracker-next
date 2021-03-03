@@ -18,7 +18,7 @@ const withAuth = (Component: NextPage) => {
       return <Login />;
     }
 
-    return <Component {...props} />
+    return <Component user={{ name: session.user.name, imageUrl: session.user.image }} {...props} />
   }
 
   if (Component.getInitialProps) {
