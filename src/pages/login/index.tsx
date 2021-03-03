@@ -30,7 +30,7 @@ const Login: NextPage = () => {
 
           <div>
             <AiFillGithub size={40} />
-            <p>Sign in with your Github to start</p>
+            <p>Sign in with your GitHub to start</p>
           </div>
 
           <SignInButton onClick={signIn}>
