@@ -1,17 +1,28 @@
 import React, { useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
+import LevelIcon from '../../assets/icons/level.svg'
+
 import { Container } from '../../styles/components/Profile';
 
-const Profile: React.FunctionComponent = () => {
+interface GitHubUser {
+  name: string;
+  imageUrl: string;
+}
+
+interface ProfileProps {
+  user: GitHubUser;
+}
+
+const Profile: React.FunctionComponent<ProfileProps> = ({ user }) => {
   const { level } = useContext(ChallengesContext);
   return (
     <Container>
-      <img src="https://avatars.githubusercontent.com/u/21347383?s=460&u=fdb399c92e369762d45d6495cbd2e87eef9e4d65&v=4" alt="Wilson Franca" />
+      <img src={user.imageUrl} alt={user.name} />
       <div>
-        <strong>Wilson Franca</strong>
+        <strong>{user.name}</strong>
         <p>
-          <img src="icons/level.svg" alt="Level" />
+          <LevelIcon />
           Level {level}
         </p>
       </div>

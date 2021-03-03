@@ -8,14 +8,14 @@ interface SEOProps {
 const SEO: React.FunctionComponent<SEOProps> = ({ title }) => {
   return (
     <Head>
-      <title>Smart.work | {title}</title>
+      <title>Smart.it | {title}</title>
 
       <link rel="shortcut icon" href="/favicon.png" />
       <meta name="keywords" content="wilsonfsouza, focus, move" />
       <meta name="description" content="An app to help you balance your focus sessions with ergonomic movements." />
 
-      <meta property="og:site_name" content="Smart.work" />
-      <meta property="og:title" content="Smart.work" />
+      <meta property="og:site_name" content="Smart.it" />
+      <meta property="og:title" content="Smart.it" />
       <meta property="og:description" content="An app to help you balance your focus sessions with ergonomic movements." />
       <meta property="og:image" content="/thumb.svg" />
       <meta property="og:image:type" content="image/svg" />
@@ -25,7 +25,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({ title }) => {
       <meta name="twitter:image" content="/thumb.svg" />
       <meta name="twiiter:image:alt" content="Thumbnail" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Smart.work" />
+      <meta name="twitter:title" content="Smart.it" />
       <meta name="twitter:description" content="An app to help you balance your focus sessions with ergonomic movements." />
       <meta name="twiiter:create" content="wilsonfsouza" />
     </Head>

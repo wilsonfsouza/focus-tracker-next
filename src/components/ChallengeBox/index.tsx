@@ -2,6 +2,10 @@ import React, { useCallback, useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
+import LevelUpIcon from '../../assets/icons/level-up.svg';
+import BodyIcon from '../../assets/icons/body.svg';
+import EyeIcon from '../../assets/icons/eye.svg';
+
 import {
   Container,
   ChallengeNotActive,
@@ -31,8 +35,10 @@ const ChallengeBox: React.FunctionComponent = () => {
         <ChallengeActive>
           <header>Win {activeChallenge.amount} xp</header>
           <ChallengeActiveMain>
-            <img src={`icons/${activeChallenge.type}.svg`} alt="Challenge" />
+            {activeChallenge.type === 'body' ? (<BodyIcon />) : (<EyeIcon />)}
+
             <strong>New Challenge</strong>
+
             <p>{activeChallenge.description}</p>
           </ChallengeActiveMain>
 
@@ -59,7 +65,9 @@ const ChallengeBox: React.FunctionComponent = () => {
               Complete a new cycle to receive your next challenge
         </strong>
             <p>
-              <img src="icons/level-up.svg" alt="Level Up" />
+              <div>
+                <LevelUpIcon />
+              </div>
           Level up by completing challenges.
         </p>
           </ChallengeNotActive >
