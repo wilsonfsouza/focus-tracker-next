@@ -38,7 +38,7 @@ export const ChallengeNotActive = styled.div`
     max-width: 70%;
     margin-top: 3rem;
 
-    img {
+    svg {
       height: 60%;
       margin-right: 1.4rem;
     }

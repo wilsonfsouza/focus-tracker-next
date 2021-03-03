@@ -23,7 +23,7 @@ export const Container = styled.div`
       font-size: 1rem;
       margin-top: 0.5rem;
 
-      img {
+      svg {
         margin-right: 0.5rem;
       }
     }
