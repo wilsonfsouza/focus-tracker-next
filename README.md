@@ -76,6 +76,7 @@ Smart.it is a web application that combines a gamified experience of the pomodor
   <img style="margin-right: 5px; max-width: 400px;" alt="Mobile" title="#Mobile" src="./docs/apple-iphone-x-min.png" width="40%">
 </p>
 <br />
+
 ---
 
 ## 🚀 How to run the project
