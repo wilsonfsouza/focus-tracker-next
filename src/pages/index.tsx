@@ -7,12 +7,14 @@ import CountDown from '../components/Countdown';
 import ExperienceBar from '../components/ExperienceBar';
 import Profile from '../components/Profile';
 import ChallengeBox from '../components/ChallengeBox';
+import SEO from '../components/SEO';
 
 
 import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import SideBar from '../components/SideBar';
+import withAuth from '../hoc/withAuth';
 
 interface HomeProps {
   level: number;
@@ -28,9 +30,7 @@ const Home: React.FunctionComponent<HomeProps> = ({ level, currentExperience, ch
       challengesCompleted={challengesCompleted}
     >
       <Container>
-        <Head>
-          <title>Home | Focus Tracker</title>
-        </Head>
+        <SEO title="Home" />
 
         <SideBar />
         <Main>
@@ -56,7 +56,7 @@ const Home: React.FunctionComponent<HomeProps> = ({ level, currentExperience, ch
   )
 }
 
-export default Home;
+export default withAuth(Home);
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
