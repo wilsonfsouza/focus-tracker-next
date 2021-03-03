@@ -7,7 +7,7 @@ import AppProvider from '../contexts';
 
 const MyApp: React.FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   return (
-    <AppProvider>
+    <AppProvider sessionProps={pageProps.session}>
       <Component {...pageProps} />
       <GlobalStyle />
     </AppProvider>
