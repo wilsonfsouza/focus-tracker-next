@@ -2,10 +2,11 @@ import React, { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 import { AuthProvider } from './auth';
+import { Session } from 'next-auth/client';
 
 interface AppProviderProps {
   children: ReactNode;
-  sessionProps?: any;
+  sessionProps?: Session;
 }
 
 const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, sessionProps }) => {

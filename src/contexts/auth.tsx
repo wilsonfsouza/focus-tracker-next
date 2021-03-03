@@ -1,6 +1,7 @@
 import React, { createContext, FormEvent, ReactNode, useCallback, useContext } from 'react';
 import {
   Provider,
+  Session,
   signIn as handleOAuthLogin,
   signOut as handleOAuthLogout
 } from 'next-auth/client';
@@ -11,12 +12,11 @@ export interface AuthContextData {
 }
 
 interface AuthProviderProps {
-  session: any;
+  session: Session;
   children: ReactNode;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
-
 
 const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ session, children }) => {
   const signIn = useCallback((event: FormEvent) => {

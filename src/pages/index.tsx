@@ -20,9 +20,13 @@ interface HomeProps {
   level: number;
   currentExperience: number;
   challengesCompleted: number;
+  user?: {
+    name: string;
+    imageUrl: string;
+  }
 }
 
-const Home: React.FunctionComponent<HomeProps> = ({ level, currentExperience, challengesCompleted }) => {
+const Home: React.FunctionComponent<HomeProps> = ({ user, level, currentExperience, challengesCompleted }) => {
   return (
     <ChallengesProvider
       level={level}
@@ -39,7 +43,7 @@ const Home: React.FunctionComponent<HomeProps> = ({ level, currentExperience, ch
           <CountdownProvider>
             <Section>
               <LeftContainer>
-                <Profile />
+                <Profile user={user} />
                 <CompletedChallenges />
                 <CountDown />
               </LeftContainer>
