@@ -65,9 +65,9 @@ const ChallengeBox: React.FunctionComponent = () => {
               Complete a new cycle to receive your next challenge
         </strong>
             <p>
-              <div>
+              <span>
                 <LevelUpIcon />
-              </div>
+              </span>
           Level up by completing challenges.
         </p>
           </ChallengeNotActive >
