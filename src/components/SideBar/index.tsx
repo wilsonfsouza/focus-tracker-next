@@ -14,7 +14,7 @@ import { useTheme } from '../../contexts/theme';
 const SideBar: React.FunctionComponent = () => {
   const { signOut } = useAuth();
   const { asPath } = useRouter();
-  const { theme, themeName, toggleTheme } = useTheme();
+  const { themeName, toggleTheme } = useTheme();
 
   return (
     <Container>
