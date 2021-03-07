@@ -15,6 +15,7 @@ import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import SideBar from '../components/SideBar';
 import withAuth from '../hoc/withAuth';
+import { getSession } from 'next-auth/client';
 
 interface HomeProps {
   level: number;
@@ -63,13 +64,14 @@ const Home: React.FunctionComponent<HomeProps> = ({ user, level, currentExperien
 export default withAuth(Home);
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+  const { level, currentExperience, challengesCompleted, theme } = ctx.req.cookies;
 
   return {
     props: {
       level: Number(level),
       currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+      challengesCompleted: Number(challengesCompleted),
+      theme,
     }
   }
 }

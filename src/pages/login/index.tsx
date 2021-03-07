@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { AiFillGithub } from 'react-icons/ai';
 import { useAuth } from '../../contexts/auth';
 
@@ -13,7 +13,6 @@ import { Container, BackgroundContainer, MainSection, LoginContainer, SignInButt
 
 const Login: NextPage = () => {
   const { signIn } = useAuth();
-
   return (
     <Container>
       <SEO title="Login" />
@@ -43,3 +42,15 @@ const Login: NextPage = () => {
 }
 
 export default Login;
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const {
+    theme
+  } = ctx.req.cookies;
+
+  return {
+    props: {
+      theme,
+    }
+  }
+}
