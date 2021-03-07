@@ -14,16 +14,16 @@ export const Container = styled.a<ContainerProps>`
   align-items: center;
 
   ${props => props.isActive && css`
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.blue400};
   `}
   transition: color 0.2s ease;
 
   &:hover {
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.blue400};
   }
 
   & + a {
-    margin-top: 1rem;
+    margin-top: 1.6rem;
   }
 
   @media (max-width: 980px) {
@@ -34,12 +34,12 @@ export const Container = styled.a<ContainerProps>`
 
     & + a {
       margin-top: 0;
-      margin-left: 2rem;
+      margin-left: 3.2rem;
     }
   }
 `;
 
-export const Content = styled.div<ContentProps>`
+export const Content = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ export const Content = styled.div<ContentProps>`
 export const ActiveBar = styled.div`
   width: 5px;
   height: 56px;
-  background-color: ${props => props.theme.colors.blue};
+  background-color: ${props => props.theme.colors.blue400};
   border-radius: 0 5px 5px 0;
 
   position: absolute;
@@ -65,7 +65,7 @@ export const ActiveBar = styled.div`
   @media (max-width: 980px) {
     width: 90px;
     height: 5px;
-    background-color: ${props => props.theme.colors.blue};
+    background-color: ${props => props.theme.colors.blue400};
     border-radius: 5px 5px 0 0;
 
     position: absolute;
