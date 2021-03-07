@@ -1,17 +1,20 @@
 import React, { ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
-import theme from '../styles/theme';
+// import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, ThemeOptions } from '../contexts/theme';
+
+// import theme from '../styles/theme';
 import { AuthProvider } from './auth';
 import { Session } from 'next-auth/client';
 
 interface AppProviderProps {
   children: ReactNode;
   sessionProps?: Session;
+  theme: ThemeOptions;
 }
 
-const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, sessionProps }) => {
+const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, sessionProps, theme }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider themeName={theme}>
       <AuthProvider session={sessionProps}>
         {children}
       </AuthProvider>
