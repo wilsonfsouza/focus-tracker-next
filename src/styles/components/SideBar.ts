@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.aside`
   width: 90px;
   height: 100vh;
-  background-color: ${props => props.theme.colors.white};
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem 0;
+  background-color: ${props => props.theme.colors.sideBar};
+  box-shadow: ${props => props.theme.colors.boxShadow};
+  padding: 2.4rem 0;
 
   display: flex;
   flex-direction: column;

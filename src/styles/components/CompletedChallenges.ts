@@ -5,17 +5,17 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  margin: 3.5rem 0;
+  margin: 5.6rem 0;
   padding-bottom: 1rem;
   border-bottom: 1px solid ${props => props.theme.colors.borderBottom};
 
   font-weight: 500;
 
   span:first-child {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
 
   span:last-child {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
   }
 `;

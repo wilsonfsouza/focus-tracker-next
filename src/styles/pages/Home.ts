@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Animations from '../animations';
 
 export const Container = styled.div`
   height: 100vh;
@@ -8,12 +9,14 @@ export const Container = styled.div`
 
 export const Main = styled.main`
   height: 100vh;
-  max-width: 992px;
+  max-width: 99.2rem;
   margin: 0 auto;
-  padding: 2.5rem;
+  padding: 4rem;
 
   display: flex;
   flex-direction: column;
+
+  animation: ${Animations.fadeIn} 0.5s ease-in-out, ${Animations.zoom} 0.4s ease-in-out;
 
   @media (max-width: 980px) {
     height: 90vh;
@@ -26,19 +29,19 @@ export const Section = styled.section`
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6.25rem;
+  gap: 10rem;
+
   align-content: center;
 
   @media (max-width: 980px) {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 5.6rem;
   }
 `;
 
 export const LeftContainer = styled.div``;
 export const RightContainer = styled.div`
   @media (max-width: 980px) {
-    margin-bottom: 8rem;
-
+    margin-bottom: 12.8rem;
   }
 `;

@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import Animations from '../animations'
 
 export const Container = styled.div`
   width: 100vw;
@@ -11,22 +12,17 @@ export const Container = styled.div`
   background: ${props => props.theme.colors.background};
 `;
 
-const sideToSide = keyframes`
-  0%, 100% { transform: translateX(0%);}
-  50% { transform: translateX(100%); }
-`;
-
 export const LoadingContainer = styled.div`
   margin-top: 2rem;
   position: relative;
   height: 2px;
   width: 10em;
-  background: ${props => props.theme.colors.grayLine};
+  background: ${props => props.theme.colors.light300};
 `;
 
 export const LoadingBar = styled.div`
-  animation: ${sideToSide} 2s ease-in-out infinite;
-  background: ${props => props.theme.colors.blue};
+  animation: ${Animations.sideToSide} 2s ease-in-out infinite;
+  background: ${props => props.theme.colors.blue400};
   width: 50%;
   height: 100%;
   position: absolute;
