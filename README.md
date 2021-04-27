@@ -62,10 +62,6 @@ Smart.it is a web application that combines a gamified experience of the pomodor
 <p align="center">
   <img style="margin-right: 5px; max-width: 400px;" alt="Dashboard" title="#Dashboard" src="./docs/apple-imac-dashboard-min.png" width="80%">
 </p>
-<br /><br />
-<p align="center">
-  <img style="margin-right: 5px; max-width: 400px;" alt="LevepUp" title="#LevepUp" src="./docs/apple-imac-levelup-min.png" width="80%">
-</p>
 <br />
 <br />
 <p align="center">
