@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 
 import CompletedChallenges from '../components/CompletedChallenges';
@@ -15,7 +14,6 @@ import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import SideBar from '../components/SideBar';
 import withAuth from '../hoc/withAuth';
-import { getSession } from 'next-auth/client';
 
 interface HomeProps {
   level: number;
@@ -71,7 +69,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       level: Number(level),
       currentExperience: Number(currentExperience),
       challengesCompleted: Number(challengesCompleted),
-      theme,
+      theme: theme ? theme : 'light',
     }
   }
 }
