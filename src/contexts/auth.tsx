@@ -7,7 +7,7 @@ import {
 } from 'next-auth/client';
 
 export interface AuthContextData {
-  signIn: (event: FormEvent) => void;
+  signIn: (provider: string) => void;
   signOut: (event: FormEvent) => void;
 }
 
@@ -19,9 +19,8 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ session, children }) => {
-  const signIn = useCallback((event: FormEvent) => {
-    event.preventDefault();
-    handleOAuthLogin('github');
+  const signIn = useCallback((provider: string) => {
+    handleOAuthLogin(provider);
   }, []);
 
   const signOut = useCallback((event: FormEvent) => {
