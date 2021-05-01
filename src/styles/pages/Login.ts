@@ -35,7 +35,7 @@ export const BackgroundContainer = styled.section`
   animation: ${Animations.fadeIn} 1s;
 
   @media (max-width: 765px) {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   @media (max-width: 500px) {
@@ -98,7 +98,7 @@ export const MainSection = styled.section`
 
   @media (max-width: 500px) {
     width: 100%;
-    padding: 11.84rem 3.2rem;
+    padding: 11.84rem 6rem;
 
     > svg {
       transform: scale(0.6);
