@@ -27,9 +27,9 @@ const options = {
     //   session.id = user.id
     //   return Promise.resolve(session);
     // },
-    // redirect: (_: string, _2: string) => {
-    //   return Promise.resolve(process.env.NEXTAUTH_URL as string)
-    // }
+    redirect: (_: string, _2: string) => {
+      return Promise.resolve(process.env.NEXTAUTH_URL as string)
+    }
   }
 }
 
