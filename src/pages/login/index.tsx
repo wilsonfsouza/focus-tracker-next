@@ -6,7 +6,6 @@ import { useAuth } from '../../contexts/auth';
 
 import SEO from '../../components/SEO';
 import BackgroundLogo from '../../assets/logo-background.svg';
-import FullLogo from '../../assets/logo-full.svg';
 
 import { Container, BackgroundContainer, MainSection, LoginContainer, SignInButton } from '../../styles/pages/Login';
 
@@ -23,7 +22,7 @@ const Login: NextPage = () => {
 
       <LoginContainer>
         <MainSection>
-          <FullLogo />
+          <img src="/logo-full.svg" alt="Smart.it" />
 
           <h2>Welcome</h2>
 
