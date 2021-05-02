@@ -39,6 +39,12 @@ Smart.it is a web application that combines a gamified experience of the pomodor
 
 ---
 
+## 🔥 Preview
+
+[![Deploy with Vercel](https://vercel.com/button)](https://smart-it.vercel.app/)
+
+---
+
 ## ⚙️ Features
 
 - Authentication using GitHub (OAuth).
