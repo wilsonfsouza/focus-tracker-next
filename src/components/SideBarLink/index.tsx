@@ -16,7 +16,7 @@ const SideBarLink: React.FunctionComponent<SideBarLinkProps> = ({ title, icon: I
     return (
       <Container href={href} type="button" isActive={isActive} tabIndex={0} {...rest}>
         <Content>
-          {isActive && <ActiveBar />}
+          {isActive && <ActiveBar data-testid="active-bar" />}
           <Icon size={32} title={title} aria-hidden="false" />
         </Content>
       </Container>
