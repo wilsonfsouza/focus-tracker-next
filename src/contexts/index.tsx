@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react';
-// import { ThemeProvider } from 'styled-components';
-import { ThemeProvider, ThemeOptions } from '../contexts/theme';
-
-// import theme from '../styles/theme';
-import { AuthProvider } from './auth';
+import { ThemeProvider, ThemeOptions } from '../hooks/theme';
+import { AuthProvider } from '../hooks/auth';
 import { Session } from 'next-auth/client';
 
 interface AppProviderProps {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { GetStaticProps, NextPage } from 'next';
 import { AiFillGithub } from 'react-icons/ai';
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from '../../hooks/auth';
 
 import SEO from '../../components/SEO';
 import BackgroundLogo from '../../assets/logo-background.svg';

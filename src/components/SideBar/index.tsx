@@ -8,8 +8,8 @@ import ThemeButton from '../ThemeButton';
 import SideBarLink from '../SideBarLink';
 
 import { Container, TabSection, LogoutSection } from '../../styles/components/SideBar';
-import { useAuth } from '../../contexts/auth';
-import { useTheme } from '../../contexts/theme';
+import { useAuth } from '../../hooks/auth';
+import { useTheme } from '../../hooks/theme';
 
 const SideBar: React.FunctionComponent = () => {
   const { signOut } = useAuth();
@@ -26,8 +26,8 @@ const SideBar: React.FunctionComponent = () => {
         {themeName === 'light' ? (
           <ThemeButton icon={FiSun} onClick={toggleTheme} />
         ) : (
-            <ThemeButton icon={FiMoon} onClick={toggleTheme} />
-          )}
+          <ThemeButton icon={FiMoon} onClick={toggleTheme} />
+        )}
       </TabSection>
 
       <LogoutSection>
