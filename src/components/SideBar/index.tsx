@@ -19,13 +19,13 @@ const SideBar: React.FunctionComponent = () => {
       <LogoIcon />
 
       <TabSection>
-        <SideBarLink href="/" icon={FiHome} isActivable isActive={asPath === '/' ? true : false} />
-        <SideBarLink style={{ cursor: 'not-allowed' }} icon={FiAward} isActivable isActive={false} />
+        <SideBarLink title="Home" href="/" icon={FiHome} isActivable={true} isActive={asPath === '/' ? true : false} />
+        <SideBarLink title="Stats" style={{ cursor: 'not-allowed' }} icon={FiAward} isActivable={true} isActive={false} />
         <ThemeButton />
       </TabSection>
 
       <LogoutSection>
-        <SideBarLink href="/login" icon={FiLogOut} onClick={signOut} isActivable={false} />
+        <SideBarLink title="Logout" href="/login" icon={FiLogOut} onClick={signOut} />
       </LogoutSection>
     </Container>
   );
