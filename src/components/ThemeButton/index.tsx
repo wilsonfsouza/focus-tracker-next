@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 import { IconBaseProps } from 'react-icons';
 import { Container, Content } from '../../styles/components/ThemeButton';
@@ -7,7 +7,7 @@ type ThemeButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: React.ComponentType<IconBaseProps>;
 };
 
-const ThemeButton: React.FunctionComponent<ThemeButtonProps> = ({ icon: Icon, ...rest }) => {
+export function ThemeButton({ icon: Icon, ...rest }: ThemeButtonProps) {
   return (
     <Container type="button" {...rest}>
       <Content>
@@ -16,5 +16,3 @@ const ThemeButton: React.FunctionComponent<ThemeButtonProps> = ({ icon: Icon, ..
     </Container>
   );
 }
-
-export default ThemeButton;
