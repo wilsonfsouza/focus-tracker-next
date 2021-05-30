@@ -4,18 +4,29 @@ import { IconBaseProps } from 'react-icons';
 import { Container, Content, ActiveBar } from '../../styles/components/SideBarLink';
 
 type SideBarLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  title: string;
+  icon: React.ComponentType<IconBaseProps>;
   isActivable?: boolean;
   isActive?: boolean;
-  icon?: React.ComponentType<IconBaseProps>;
   href?: string;
 };
 
-const SideBarLink: React.FunctionComponent<SideBarLinkProps> = ({ isActivable, isActive, icon: Icon, href, ...rest }) => {
+const SideBarLink: React.FunctionComponent<SideBarLinkProps> = ({ title, icon: Icon, isActivable = false, isActive, href, ...rest }) => {
+  if (isActivable) {
+    return (
+      <Container href={href} type="button" isActive={isActive} tabIndex={0} {...rest}>
+        <Content>
+          {isActive && <ActiveBar />}
+          <Icon size={32} title={title} aria-hidden="false" />
+        </Content>
+      </Container>
+    );
+  }
+
   return (
-    <Container href={href} type="button" isActive={isActive} {...rest}>
+    <Container href={href} type="button" tabIndex={0} {...rest}>
       <Content>
-        {isActivable && isActive && <ActiveBar />}
-        {Icon && <Icon size={32} />}
+        <Icon size={32} title={title} aria-hidden="false" />
       </Content>
     </Container>
   );
