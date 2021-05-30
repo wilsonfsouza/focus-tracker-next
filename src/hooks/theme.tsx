@@ -19,7 +19,7 @@ interface ThemeProviderProps {
   themeName: ThemeOptions;
 }
 
-const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
+export const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
 const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({ children, ...rest }) => {
   const [themeName, setThemeName] = useState<ThemeOptions>(rest.themeName || 'light');
