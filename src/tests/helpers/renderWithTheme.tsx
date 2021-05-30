@@ -6,11 +6,7 @@ type renderWithThemeOptions = {
   themeName?: 'light' | 'dark';
 }
 
-export const renderWithTheme = (children: ReactNode, options?: renderWithThemeOptions) => {
-  if (options) {
-    return render(<ThemeProvider themeName={options.themeName}>{children}</ThemeProvider>);
-  }
-
-  return render(<ThemeProvider themeName='light'>{children}</ThemeProvider>);
+export const renderWithTheme = (children: ReactNode, options: renderWithThemeOptions) => {
+  return render(<ThemeProvider themeName={options.themeName}>{children}</ThemeProvider>);
 }
 
