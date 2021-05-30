@@ -34,3 +34,5 @@ yarn-error.log*
 .vercel
 config.json
 auth.json
+
+notes.md
