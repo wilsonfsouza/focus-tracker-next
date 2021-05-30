@@ -30,6 +30,7 @@
     "@testing-library/dom": "^7.31.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
+    "@testing-library/react-hooks": "^7.0.0",
     "@types/jest": "^26.0.23",
     "@types/js-cookie": "^2.2.6",
     "@types/next-auth": "^3.1.24",
@@ -52,6 +53,7 @@
     "jest": "^27.0.3",
     "jest-dom": "^4.0.0",
     "prettier": "^2.2.1",
-    "typescript": "^4.2.2"
+    "ts-jest": "^27.0.1",
+    "typescript": "^4.3.2"
   }
 }
