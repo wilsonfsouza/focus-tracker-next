@@ -1,17 +1,24 @@
-import { ButtonHTMLAttributes } from 'react';
-
-import { IconBaseProps } from 'react-icons';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { useTheme } from '../../hooks/theme';
 import { Container, Content } from '../../styles/components/ThemeButton';
 
-type ThemeButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  icon?: React.ComponentType<IconBaseProps>;
-};
+export function ThemeButton() {
+  const { themeName, toggleTheme } = useTheme();
 
-export function ThemeButton({ icon: Icon, ...rest }: ThemeButtonProps) {
+  if (themeName === 'dark') {
+    return (
+      <Container type="button" onClick={toggleTheme} tabIndex={0}>
+        <Content>
+          <FiMoon size={32} title="Dark" aria-hidden="false" />
+        </Content>
+      </Container>
+    );
+  }
+
   return (
-    <Container type="button" {...rest}>
+    <Container type="button" onClick={toggleTheme} tabIndex={0}>
       <Content>
-        {Icon && <Icon size={32} />}
+        <FiSun size={32} title="Light" aria-hidden="false" />
       </Content>
     </Container>
   );
