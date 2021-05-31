@@ -1,12 +1,12 @@
-import { render } from "@testing-library/react";
+import { render, RenderOptions } from "@testing-library/react";
 import { ReactNode } from "react";
 import { ThemeProvider } from "../../hooks/theme";
 
-type renderWithThemeOptions = {
-  themeName?: 'light' | 'dark';
+interface renderWithThemeParams extends RenderOptions {
+  providerProps?: any;
 }
 
-export const renderWithTheme = (children: ReactNode, options: renderWithThemeOptions) => {
-  return render(<ThemeProvider themeName={options.themeName}>{children}</ThemeProvider>);
+export const renderWithTheme = (children: ReactNode, { providerProps, ...renderOptions }: renderWithThemeParams) => {
+  return render(<ThemeProvider {...providerProps}>{children}</ThemeProvider>,
+    renderOptions);
 }
-
