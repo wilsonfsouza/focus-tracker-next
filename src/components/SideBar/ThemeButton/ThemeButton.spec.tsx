@@ -1,8 +1,8 @@
 import { fireEvent, screen, render } from '@testing-library/react';
-import { renderWithTheme } from '../../tests/helpers/renderWithTheme';
+import { renderWithTheme } from '../../../tests/helpers/renderWithTheme';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { ThemeContext } from '../../hooks/theme';
-import Themes from '../../styles/theme';
+import { ThemeContext } from '../../../hooks/theme';
+import Themes from '../../../styles/theme';
 import { ThemeButton } from '.';
 
 describe('ThemeButton component', () => {

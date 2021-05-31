@@ -1,18 +1,22 @@
+import { useRouter } from 'next/router';
 import React, { AnchorHTMLAttributes } from 'react';
 
 import { IconBaseProps } from 'react-icons';
-import { Container, Content, ActiveBar } from '../../styles/components/SideBarLink';
+import { Container, Content, ActiveBar } from '../../../styles/components/SideBarLink';
 
 type SideBarLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   title: string;
   icon: React.ComponentType<IconBaseProps>;
   isActivable?: boolean;
-  isActive?: boolean;
   href?: string;
 };
 
-const SideBarLink: React.FunctionComponent<SideBarLinkProps> = ({ title, icon: Icon, isActivable = false, isActive, href, ...rest }) => {
+export function SideBarLink({ title, icon: Icon, isActivable = false, href, ...rest }: SideBarLinkProps) {
+  const { asPath } = useRouter();
+
   if (isActivable) {
+    const isActive = asPath === href;
+
     return (
       <Container href={href} type="button" isActive={isActive} tabIndex={0} {...rest}>
         <Content>
@@ -31,5 +35,3 @@ const SideBarLink: React.FunctionComponent<SideBarLinkProps> = ({ title, icon: I
     </Container>
   );
 }
-
-export default SideBarLink;

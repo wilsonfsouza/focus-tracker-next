@@ -1,6 +1,6 @@
 import { FiMoon, FiSun } from 'react-icons/fi';
-import { useTheme } from '../../hooks/theme';
-import { Container, Content } from '../../styles/components/ThemeButton';
+import { useTheme } from '../../../hooks/theme';
+import { Container, Content } from '../../../styles/components/ThemeButton';
 
 export function ThemeButton() {
   const { themeName, toggleTheme } = useTheme();
