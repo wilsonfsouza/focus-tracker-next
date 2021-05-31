@@ -12,7 +12,7 @@ export function LevelUpModal() {
         <strong>Congratulations</strong>
         <p>You reached a new level</p>
 
-        <button type="button" onClick={handleCloseLevelUpModal} tabIndex={0}>
+        <button type="button" onClick={handleCloseLevelUpModal} tabIndex={0} data-testid="close-button-modal">
           <CloseIcon />
         </button>
       </Container>
