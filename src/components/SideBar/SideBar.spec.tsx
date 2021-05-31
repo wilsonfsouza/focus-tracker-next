@@ -26,7 +26,11 @@ jest.mock('next/router', () => {
 
 describe('SideBar component', () => {
   it('should render correctly', async () => {
-    renderWithTheme(<SideBar />, { themeName: 'light' });
+    const providerProps = {
+      themeName: 'light',
+    }
+
+    renderWithTheme(<SideBar />, { providerProps });
 
     expect(screen.getByTestId('sidebar-logo')).toBeInTheDocument();
     expect(screen.getByText('Home')).toBeInTheDocument();
@@ -34,4 +38,4 @@ describe('SideBar component', () => {
     expect(screen.getByText('Light')).toBeInTheDocument();
     expect(screen.getByText('Logout')).toBeInTheDocument();
   })
-})
+});

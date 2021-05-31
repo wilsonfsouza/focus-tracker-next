@@ -7,13 +7,21 @@ import { ThemeButton } from '.';
 
 describe('ThemeButton component', () => {
   it('should render correctly when the light theme is selected', async () => {
-    renderWithTheme(<ThemeButton />, { themeName: 'light' });
+    const providerProps = {
+      themeName: 'light'
+    }
+
+    renderWithTheme(<ThemeButton />, { providerProps });
 
     expect(screen.getByText('Light')).toBeInTheDocument();
   });
 
   it('should render correctly when the dark theme is selected', async () => {
-    renderWithTheme(<ThemeButton />, { themeName: 'dark' });
+    const providerProps = {
+      themeName: 'dark',
+    }
+
+    renderWithTheme(<ThemeButton />, { providerProps });
 
     expect(screen.getByText('Dark')).toBeInTheDocument();
   });
