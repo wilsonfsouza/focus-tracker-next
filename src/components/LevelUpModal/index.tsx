@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { Overlay, Container } from '../../styles/components/LevelUpModal';
 import CloseIcon from '../../assets/icons/close.svg';
 
-const LevelUpModal: React.FunctionComponent = () => {
+export function LevelUpModal() {
   const { level, handleCloseLevelUpModal } = useContext(ChallengesContext);
   return (
     <Overlay>
@@ -12,12 +12,10 @@ const LevelUpModal: React.FunctionComponent = () => {
         <strong>Congratulations</strong>
         <p>You reached a new level</p>
 
-        <button type="button" onClick={handleCloseLevelUpModal}>
+        <button type="button" onClick={handleCloseLevelUpModal} tabIndex={0}>
           <CloseIcon />
         </button>
       </Container>
     </Overlay>
   );
 }
-
-export default LevelUpModal;
