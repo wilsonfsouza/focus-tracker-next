@@ -1,19 +1,18 @@
-import React from 'react';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 
-import CompletedChallenges from '../components/CompletedChallenges';
-import CountDown from '../components/Countdown';
+import withAuth from '../hoc/withAuth';
+
+import SEO from '../components/SEO';
+import { CompletedChallenges } from '../components/CompletedChallenges';
+import { Countdown } from '../components/Countdown';
 import { ExperienceBar } from '../components/ExperienceBar';
 import { Profile } from '../components/Profile';
-import ChallengeBox from '../components/ChallengeBox';
-import SEO from '../components/SEO';
-
-
-import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
+import { ChallengeBox } from '../components/ChallengeBox';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { SideBar } from '../components/SideBar';
-import withAuth from '../hoc/withAuth';
+
+import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
 
 interface HomeProps {
   level: number;
@@ -25,7 +24,7 @@ interface HomeProps {
   }
 }
 
-const Home: React.FunctionComponent<HomeProps> = ({ user, level, currentExperience, challengesCompleted }) => {
+const Home: NextPage<HomeProps> = ({ user, level, currentExperience, challengesCompleted }) => {
   return (
     <ChallengesProvider
       level={level}
@@ -44,7 +43,7 @@ const Home: React.FunctionComponent<HomeProps> = ({ user, level, currentExperien
               <LeftContainer>
                 <Profile user={user} />
                 <CompletedChallenges />
-                <CountDown />
+                <Countdown />
               </LeftContainer>
 
               <RightContainer>
