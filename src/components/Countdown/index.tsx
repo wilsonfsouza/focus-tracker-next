@@ -24,13 +24,13 @@ export function Countdown() {
     <Container>
       <CountdownContainer>
         <div>
-          <span>{minuteLeft}</span>
-          <span>{minuteRight}</span>
+          <span data-testid="minuteLeft">{minuteLeft}</span>
+          <span data-testid="minuteRight">{minuteRight}</span>
         </div>
         <span>:</span>
         <div>
-          <span>{secondLeft}</span>
-          <span>{secondRight}</span>
+          <span data-testid="secondLeft">{secondLeft}</span>
+          <span data-testid="secondRight">{secondRight}</span>
         </div>
       </CountdownContainer>
 
