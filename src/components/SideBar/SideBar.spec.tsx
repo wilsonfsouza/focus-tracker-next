@@ -2,15 +2,9 @@ import { screen } from '@testing-library/react';
 import { SideBar } from '.';
 import { renderWithTheme } from '../../tests/helpers/renderWithTheme';
 
-const mockedSignOut = jest.fn();
-
-jest.mock('../../hooks/auth', () => {
+jest.mock('next-auth/client', () => {
   return {
-    useAuth() {
-      return {
-        signOut: mockedSignOut
-      }
-    }
+    signOut: jest.fn(),
   }
 });
 
