@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { Countdown } from '.';
 import { renderWithTheme } from '../../tests/helpers/renderWithTheme';
 import { wrapWithCountdownContext } from '../../tests/helpers/wrapWithCountdownContext';
@@ -30,7 +30,13 @@ describe('Countdown component', () => {
     expect(screen.getByText(/:/)).toBeInTheDocument();
     expect(screen.getByTestId('secondLeft').textContent).toBe('0');
     expect(screen.getByTestId('secondRight').textContent).toBe('0');
-    expect(screen.getByText('Start')).toBeInTheDocument();
+
+    const countdownButton = screen.getByText('Start');
+    expect(countdownButton).toBeInTheDocument();
+
+    fireEvent.click(countdownButton);
+
+    expect(countdownProviderProps.value.startCountDown).toHaveBeenCalledTimes(1);
   });
 
   it('should render the countdown with its finished state', async () => {
@@ -56,9 +62,45 @@ describe('Countdown component', () => {
 
     expect(screen.getByTestId('minuteLeft').textContent).toBe('0');
     expect(screen.getByTestId('minuteRight').textContent).toBe('0');
-    expect(screen.getByText(/:/)).toBeInTheDocument();
     expect(screen.getByTestId('secondLeft').textContent).toBe('0');
     expect(screen.getByTestId('secondRight').textContent).toBe('0');
-    expect(screen.getByText('Done')).toBeInTheDocument();
+
+    const countdownButton = screen.getByText('Done')
+    expect(countdownButton).toBeInTheDocument();
+    expect(countdownButton).toHaveAttribute('disabled', '');
+  });
+
+  it('should render the countdown with its active state', async () => {
+    const themeProviderProps = {
+      themeName: 'light'
+    }
+
+    const countdownProviderProps = {
+      value: {
+        minutes: 20,
+        seconds: 25,
+        hasFinished: false,
+        isActive: true,
+        resetCountDown: jest.fn(),
+        startCountDown: jest.fn()
+      }
+    }
+
+    renderWithTheme(
+      wrapWithCountdownContext(<Countdown />, { providerProps: countdownProviderProps }),
+      { providerProps: themeProviderProps }
+    );
+
+    expect(screen.getByTestId('minuteLeft').textContent).toBe('2');
+    expect(screen.getByTestId('minuteRight').textContent).toBe('0');
+    expect(screen.getByTestId('secondLeft').textContent).toBe('2');
+    expect(screen.getByTestId('secondRight').textContent).toBe('5');
+
+    const countdownButton = screen.getByText('Stop');
+    expect(countdownButton).toBeInTheDocument();
+
+    fireEvent.click(countdownButton);
+
+    expect(countdownProviderProps.value.resetCountDown).toHaveBeenCalledTimes(1);
   });
 })
