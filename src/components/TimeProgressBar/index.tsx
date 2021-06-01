@@ -14,7 +14,7 @@ export function TimeProgressBar() {
   return (
     <Container>
       <div />
-      <div style={{ width: `${progressBarPercentage}%` }} />
+      <div data-testid="progressBar" style={{ width: `${progressBarPercentage}%` }} />
     </Container>
   );
 };
