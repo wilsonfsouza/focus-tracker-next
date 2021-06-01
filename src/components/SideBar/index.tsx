@@ -17,7 +17,7 @@ export function SideBar() {
       </TabSection>
 
       <LogoutSection>
-        <SideBarLink title="Logout" href="/login" icon={FiLogOut} onClick={() => signOut()} />
+        <SideBarLink data-testid="signOut" title="signOut" href="/login" icon={FiLogOut} onClick={() => signOut()} />
       </LogoutSection>
     </Container>
   );
