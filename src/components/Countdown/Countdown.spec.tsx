@@ -32,4 +32,33 @@ describe('Countdown component', () => {
     expect(screen.getByTestId('secondRight').textContent).toBe('0');
     expect(screen.getByText('Start')).toBeInTheDocument();
   });
+
+  it('should render the countdown with its finished state', async () => {
+    const themeProviderProps = {
+      themeName: 'light'
+    }
+
+    const countdownProviderProps = {
+      value: {
+        minutes: 0,
+        seconds: 0,
+        hasFinished: true,
+        isActive: false,
+        resetCountDown: jest.fn(),
+        startCountDown: jest.fn()
+      }
+    }
+
+    renderWithTheme(
+      wrapWithCountdownContext(<Countdown />, { providerProps: countdownProviderProps }),
+      { providerProps: themeProviderProps }
+    );
+
+    expect(screen.getByTestId('minuteLeft').textContent).toBe('0');
+    expect(screen.getByTestId('minuteRight').textContent).toBe('0');
+    expect(screen.getByText(/:/)).toBeInTheDocument();
+    expect(screen.getByTestId('secondLeft').textContent).toBe('0');
+    expect(screen.getByTestId('secondRight').textContent).toBe('0');
+    expect(screen.getByText('Done')).toBeInTheDocument();
+  });
 })
