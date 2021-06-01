@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
@@ -15,7 +15,7 @@ import {
   ChallengeActiveFooter
 } from '../../styles/components/ChallengeBox';
 
-const ChallengeBox: React.FunctionComponent = () => {
+export function ChallengeBox() {
   const { activeChallenge, handleResetChallenge, handleCompleteChallenge } = useContext(ChallengesContext);
   const { resetCountDown } = useContext(CountdownContext);
 
@@ -60,20 +60,18 @@ const ChallengeBox: React.FunctionComponent = () => {
           </ChallengeActiveFooter>
         </ChallengeActive>
       ) : (
-          <ChallengeNotActive>
-            <strong>
-              Complete a new cycle to receive your next challenge
+        <ChallengeNotActive>
+          <strong>
+            Complete a new cycle to receive your next challenge
         </strong>
-            <p>
-              <span>
-                <LevelUpIcon />
-              </span>
+          <p>
+            <span>
+              <LevelUpIcon />
+            </span>
           Level up by completing challenges.
         </p>
-          </ChallengeNotActive >
-        )}
+        </ChallengeNotActive>
+      )}
     </Container >
   );
 }
-
-export default ChallengeBox;
