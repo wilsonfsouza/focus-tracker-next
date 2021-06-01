@@ -1,14 +1,11 @@
 import { FiHome, FiAward, FiLogOut } from 'react-icons/fi';
+import { signOut } from 'next-auth/client';
 import { ThemeButton } from './ThemeButton';
 import { SideBarLink } from './SideBarLink';
 import { Container, TabSection, LogoutSection } from '../../styles/components/SideBar';
-import { useAuth } from '../../hooks/auth';
-
 import LogoIcon from '../../assets/focus-logo.svg';
 
 export function SideBar() {
-  const { signOut } = useAuth();
-
   return (
     <Container>
       <LogoIcon data-testid='sidebar-logo' />
@@ -20,7 +17,7 @@ export function SideBar() {
       </TabSection>
 
       <LogoutSection>
-        <SideBarLink title="Logout" href="/login" icon={FiLogOut} onClick={signOut} />
+        <SideBarLink title="Logout" href="/login" icon={FiLogOut} onClick={() => signOut()} />
       </LogoutSection>
     </Container>
   );
