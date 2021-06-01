@@ -29,9 +29,9 @@ export function ChallengeBox() {
     resetCountDown();
   }, [handleResetChallenge, resetCountDown]);
 
-  return (
-    <Container>
-      {activeChallenge ? (
+  if (activeChallenge) {
+    return (
+      <Container>
         <ChallengeActive>
           <header>Win {activeChallenge.amount} xp</header>
           <ChallengeActiveMain>
@@ -59,19 +59,23 @@ export function ChallengeBox() {
             </ChallengeButton>
           </ChallengeActiveFooter>
         </ChallengeActive>
-      ) : (
-        <ChallengeNotActive>
-          <strong>
-            Complete a new cycle to receive your next challenge
+      </Container>
+    )
+  }
+
+  return (
+    <Container>
+      <ChallengeNotActive>
+        <strong>
+          Complete a new cycle to receive your next challenge
         </strong>
-          <p>
-            <span>
-              <LevelUpIcon />
-            </span>
+        <p>
+          <span>
+            <LevelUpIcon />
+          </span>
           Level up by completing challenges.
         </p>
-        </ChallengeNotActive>
-      )}
+      </ChallengeNotActive >
     </Container >
   );
 }
