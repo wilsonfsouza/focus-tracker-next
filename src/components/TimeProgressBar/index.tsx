@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
 import { Container } from '../../styles/components/TimeProgressBar';
 
-const TimeProgressBar: React.FunctionComponent = () => {
+export function TimeProgressBar() {
   const {
     time,
     challengeTime,
@@ -18,5 +18,3 @@ const TimeProgressBar: React.FunctionComponent = () => {
     </Container>
   );
 };
-
-export default TimeProgressBar;
