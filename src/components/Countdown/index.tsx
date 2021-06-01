@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
 import DoneIcon from '../../assets/icons/check_circle.svg';
@@ -6,7 +6,7 @@ import DoneIcon from '../../assets/icons/check_circle.svg';
 import { TimeProgressBar } from '../TimeProgressBar';
 import { Container, CountdownContainer, CountdownButton } from '../../styles/components/Countdown';
 
-const Countdown: React.FunctionComponent = () => {
+export function Countdown() {
   const {
     minutes,
     seconds,
@@ -56,5 +56,3 @@ const Countdown: React.FunctionComponent = () => {
     </Container>
   );
 }
-
-export default Countdown;
