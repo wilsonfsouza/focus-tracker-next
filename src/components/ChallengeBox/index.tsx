@@ -35,7 +35,7 @@ export function ChallengeBox() {
         <ChallengeActive>
           <header>Win {activeChallenge.amount} xp</header>
           <ChallengeActiveMain>
-            {activeChallenge.type === 'body' ? (<BodyIcon />) : (<EyeIcon />)}
+            {activeChallenge.type === 'body' ? (<BodyIcon data-testid="bodyIcon" />) : (<EyeIcon data-testid="eyeIcon" />)}
 
             <strong>New Challenge</strong>
 
@@ -47,6 +47,7 @@ export function ChallengeBox() {
               type="button"
               fail
               onClick={handleChallengeFailed}
+              tabIndex={0}
             >
               Failed
             </ChallengeButton>
@@ -54,6 +55,7 @@ export function ChallengeBox() {
               type="button"
               success
               onClick={handleChallengeSucceeded}
+              tabIndex={0}
             >
               Succeeded
             </ChallengeButton>
@@ -75,7 +77,7 @@ export function ChallengeBox() {
           </span>
           Level up by completing challenges.
         </p>
-      </ChallengeNotActive >
-    </Container >
+      </ChallengeNotActive>
+    </Container>
   );
 }
