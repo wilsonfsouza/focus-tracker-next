@@ -3,7 +3,7 @@ import { CountdownContext } from '../../contexts/CountdownContext';
 
 import DoneIcon from '../../assets/icons/check_circle.svg';
 
-import TimeProgressBar from '../TimeProgressBar';
+import { TimeProgressBar } from '../TimeProgressBar';
 import { Container, CountdownContainer, CountdownButton } from '../../styles/components/Countdown';
 
 const Countdown: React.FunctionComponent = () => {
@@ -40,19 +40,19 @@ const Countdown: React.FunctionComponent = () => {
           <DoneIcon />
         </CountdownButton>
       ) : (
-          <>
-            {isActive ? (
-              <CountdownButton isActive type="button" style={{ overflow: 'hidden', position: 'relative' }} onClick={resetCountDown}>
-                Stop
-                <TimeProgressBar />
-              </CountdownButton>
-            ) : (
-                <CountdownButton type="button" onClick={startCountDown}>
-                  Start
-                </CountdownButton>
-              )}
-          </>
-        )}
+        <>
+          {isActive ? (
+            <CountdownButton isActive type="button" style={{ overflow: 'hidden', position: 'relative' }} onClick={resetCountDown}>
+              Stop
+              <TimeProgressBar />
+            </CountdownButton>
+          ) : (
+            <CountdownButton type="button" onClick={startCountDown}>
+              Start
+            </CountdownButton>
+          )}
+        </>
+      )}
     </Container>
   );
 }
