@@ -14,7 +14,7 @@ interface ProfileProps {
   user: GitHubUser;
 }
 
-const Profile: React.FunctionComponent<ProfileProps> = ({ user }) => {
+export function Profile({ user }: ProfileProps) {
   const { level } = useContext(ChallengesContext);
   return (
     <Container>
@@ -29,5 +29,3 @@ const Profile: React.FunctionComponent<ProfileProps> = ({ user }) => {
     </Container>
   );
 }
-
-export default Profile;

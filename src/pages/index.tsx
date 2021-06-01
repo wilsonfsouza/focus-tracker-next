@@ -4,7 +4,7 @@ import { GetServerSideProps } from 'next';
 import CompletedChallenges from '../components/CompletedChallenges';
 import CountDown from '../components/Countdown';
 import ExperienceBar from '../components/ExperienceBar';
-import Profile from '../components/Profile';
+import { Profile } from '../components/Profile';
 import ChallengeBox from '../components/ChallengeBox';
 import SEO from '../components/SEO';
 
@@ -12,7 +12,7 @@ import SEO from '../components/SEO';
 import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
-import SideBar from '../components/SideBar';
+import { SideBar } from '../components/SideBar';
 import withAuth from '../hoc/withAuth';
 
 interface HomeProps {

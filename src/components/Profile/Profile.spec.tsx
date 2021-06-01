@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import Profile from '.';
+import { Profile } from '.';
 import { ThemeProvider } from '../../hooks/theme';
 import { renderWithChallengesContext } from '../../tests/helpers/renderWithChallengesContext';
 
