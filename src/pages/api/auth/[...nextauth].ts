@@ -1,6 +1,8 @@
+import { query } from 'faunadb';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
+import { fauna } from '../../../services/fauna';
 
 const options = {
   site: process.env.NEXTAUTH_URL,
@@ -19,14 +21,39 @@ const options = {
     }
   },
   callbacks: {
-    // signIn: (user: any, session: any) => {
-    //   session.id = user.id;
-    //   return Promise.resolve(session);
-    // },
-    // session: (session: any, user: any) => {
-    //   session.id = user.id
-    //   return Promise.resolve(session);
-    // },
+    async signIn(user, account, profile) {
+      const { email } = user;
+
+      try {
+        await fauna.query(
+          query.If(
+            query.Not(
+              query.Exists(
+                query.Match(
+                  query.Index('user_by_email'),
+                  query.Casefold(email)
+                )
+              )
+            ),
+            query.Create(
+              query.Collection('users'),
+              { data: { email } }
+            ),
+            query.Get(
+              query.Match(
+                query.Index('user_by_email'),
+                query.Casefold(email)
+              )
+            )
+          )
+        )
+
+        return true;
+      } catch {
+        return false;
+      }
+    },
+
     redirect: (_: string, _2: string) => {
       return Promise.resolve(process.env.NEXTAUTH_URL as string)
     }
