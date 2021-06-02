@@ -1,12 +1,10 @@
-import React from 'react';
-
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/client';
 
 import Login from '../pages/login';
 import Loader from '../components/Loader';
 
-const withAuth = (Component: NextPage) => {
+export default function withAuth(Component: NextPage) {
   const Auth: NextPage = (props: any) => {
     const [session, loading] = useSession();
 
@@ -27,5 +25,3 @@ const withAuth = (Component: NextPage) => {
 
   return Auth;
 }
-
-export default withAuth;
