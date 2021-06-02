@@ -13,11 +13,14 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { SideBar } from '../components/SideBar';
 
 import { Container, Main, Section, LeftContainer, RightContainer } from '../styles/pages/Home';
+import { api } from '../services/api';
+import { getSession } from 'next-auth/client';
+import { getUserData } from './api/_lib/getUserData';
 
 interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
+  level?: number;
+  currentExperience?: number;
+  challengesCompleted?: number;
   user?: {
     name: string;
     imageUrl: string;
@@ -60,8 +63,22 @@ const Home: NextPage<HomeProps> = ({ user, level, currentExperience, challengesC
 
 export default withAuth(Home);
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted, theme } = ctx.req.cookies;
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const { theme } = req.cookies;
+
+  const session = await getSession({ req });
+
+  const userData = await getUserData(session.user.email);
+
+  if (!userData) {
+    return {
+      props: {
+        theme: theme ? theme : 'light',
+      }
+    }
+  }
+
+  const { level, currentExperience, challengesCompleted } = userData;
 
   return {
     props: {
