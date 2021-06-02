@@ -4,9 +4,9 @@ import Logo from '../../assets/focus-logo.svg';
 export default function Loader() {
   return (
     <Container>
-      <Logo />
+      <Logo data-testid="loadingLogo" />
       <LoadingContainer>
-        <LoadingBar />
+        <LoadingBar data-testid="loadingBar" />
       </LoadingContainer>
     </Container>
   );
