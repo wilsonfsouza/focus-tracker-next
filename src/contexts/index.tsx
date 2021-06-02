@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { ThemeProvider, ThemeOptions } from '../hooks/theme';
-import { AuthProvider } from '../hooks/auth';
 import { Session } from 'next-auth/client';
 
 interface AppProviderProps {
@@ -9,12 +8,10 @@ interface AppProviderProps {
   theme: ThemeOptions;
 }
 
-const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, sessionProps, theme }) => {
+const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, theme }) => {
   return (
     <ThemeProvider themeName={theme}>
-      <AuthProvider session={sessionProps}>
-        {children}
-      </AuthProvider>
+      {children}
     </ThemeProvider>
   )
 }

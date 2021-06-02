@@ -5,13 +5,11 @@ import GlobalStyle from '../styles/global';
 
 import AppProvider from '../contexts';
 
-const MyApp: React.FunctionComponent<AppProps> = ({ Component, pageProps }) => {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AppProvider sessionProps={pageProps.session} theme={pageProps.theme}>
+    <AppProvider theme={pageProps.theme}>
       <Component {...pageProps} />
       <GlobalStyle />
     </AppProvider>
   );
 }
-
-export default MyApp
