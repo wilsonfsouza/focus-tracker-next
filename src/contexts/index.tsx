@@ -8,12 +8,10 @@ interface AppProviderProps {
   theme: ThemeOptions;
 }
 
-const AppProvider: React.FunctionComponent<AppProviderProps> = ({ children, theme }) => {
+export default function AppProvider({ children, theme }: AppProviderProps) {
   return (
     <ThemeProvider themeName={theme}>
       {children}
     </ThemeProvider>
   )
 }
-
-export default AppProvider;
