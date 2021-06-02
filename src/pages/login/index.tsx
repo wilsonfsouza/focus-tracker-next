@@ -1,8 +1,6 @@
-import React from 'react';
-
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
+import { signIn } from 'next-auth/client';
 import { AiFillGithub } from 'react-icons/ai';
-import { useAuth } from '../../contexts/auth';
 
 import SEO from '../../components/SEO';
 import BackgroundLogo from '../../assets/logo-background.svg';
@@ -10,8 +8,7 @@ import BackgroundLogo from '../../assets/logo-background.svg';
 import { Container, BackgroundContainer, MainSection, LoginContainer, SignInButton } from '../../styles/pages/Login';
 
 
-const Login: NextPage = () => {
-  const { signIn } = useAuth();
+export default function Login() {
   return (
     <Container>
       <SEO title="Login" />
@@ -39,8 +36,6 @@ const Login: NextPage = () => {
     </Container>
   );
 }
-
-export default Login;
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

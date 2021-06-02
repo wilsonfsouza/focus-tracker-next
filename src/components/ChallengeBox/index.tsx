@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
@@ -15,7 +15,7 @@ import {
   ChallengeActiveFooter
 } from '../../styles/components/ChallengeBox';
 
-const ChallengeBox: React.FunctionComponent = () => {
+export function ChallengeBox() {
   const { activeChallenge, handleResetChallenge, handleCompleteChallenge } = useContext(ChallengesContext);
   const { resetCountDown } = useContext(CountdownContext);
 
@@ -29,13 +29,13 @@ const ChallengeBox: React.FunctionComponent = () => {
     resetCountDown();
   }, [handleResetChallenge, resetCountDown]);
 
-  return (
-    <Container>
-      {activeChallenge ? (
+  if (activeChallenge) {
+    return (
+      <Container>
         <ChallengeActive>
           <header>Win {activeChallenge.amount} xp</header>
           <ChallengeActiveMain>
-            {activeChallenge.type === 'body' ? (<BodyIcon />) : (<EyeIcon />)}
+            {activeChallenge.type === 'body' ? (<BodyIcon data-testid="bodyIcon" />) : (<EyeIcon data-testid="eyeIcon" />)}
 
             <strong>New Challenge</strong>
 
@@ -47,6 +47,7 @@ const ChallengeBox: React.FunctionComponent = () => {
               type="button"
               fail
               onClick={handleChallengeFailed}
+              tabIndex={0}
             >
               Failed
             </ChallengeButton>
@@ -54,26 +55,29 @@ const ChallengeBox: React.FunctionComponent = () => {
               type="button"
               success
               onClick={handleChallengeSucceeded}
+              tabIndex={0}
             >
               Succeeded
             </ChallengeButton>
           </ChallengeActiveFooter>
         </ChallengeActive>
-      ) : (
-          <ChallengeNotActive>
-            <strong>
-              Complete a new cycle to receive your next challenge
+      </Container>
+    )
+  }
+
+  return (
+    <Container>
+      <ChallengeNotActive>
+        <strong>
+          Complete a new cycle to receive your next challenge
         </strong>
-            <p>
-              <span>
-                <LevelUpIcon />
-              </span>
+        <p>
+          <span>
+            <LevelUpIcon />
+          </span>
           Level up by completing challenges.
         </p>
-          </ChallengeNotActive >
-        )}
-    </Container >
+      </ChallengeNotActive>
+    </Container>
   );
 }
-
-export default ChallengeBox;

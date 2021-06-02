@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
 import { Container } from '../../styles/components/CompletedChallenges';
 
-const CompletedChallenges: React.FunctionComponent = () => {
+export function CompletedChallenges() {
   const { challengesCompleted } = useContext(ChallengesContext);
 
   return (
@@ -13,5 +13,3 @@ const CompletedChallenges: React.FunctionComponent = () => {
     </Container>
   )
 }
-
-export default CompletedChallenges;

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
 import { Container } from '../../styles/components/TimeProgressBar';
 
-const TimeProgressBar: React.FunctionComponent = () => {
+export function TimeProgressBar() {
   const {
     time,
     challengeTime,
@@ -14,9 +14,7 @@ const TimeProgressBar: React.FunctionComponent = () => {
   return (
     <Container>
       <div />
-      <div style={{ width: `${progressBarPercentage}%` }} />
+      <div data-testid="progressBar" style={{ width: `${progressBarPercentage}%` }} />
     </Container>
   );
 };
-
-export default TimeProgressBar;

@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useState, ReactNode, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
-import LevelUpModal from '../components/LevelUpModal';
+import { LevelUpModal } from '../components/LevelUpModal';
 
 interface IChallenge {
   type: string;
@@ -24,17 +24,17 @@ interface ChallengesContextData {
 
 interface ChallengesProviderProps {
   children: ReactNode;
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
+  level?: number;
+  currentExperience?: number;
+  challengesCompleted?: number;
 }
 
 export const ChallengesContext = createContext<ChallengesContextData>({} as ChallengesContextData);
 
-const ChallengesProvider: React.FunctionComponent<ChallengesProviderProps> = ({
+export function ChallengesProvider({
   children,
   ...rest
-}) => {
+}: ChallengesProviderProps) {
   const [level, setLevel] = useState(rest.level ?? 1);
   const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
@@ -43,9 +43,9 @@ const ChallengesProvider: React.FunctionComponent<ChallengesProviderProps> = ({
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
-  useEffect(() => {
-    Notification.requestPermission();
-  }, []);
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  // }, []);
 
   useEffect(() => {
     Cookies.set('level', String(level));
@@ -65,13 +65,13 @@ const ChallengesProvider: React.FunctionComponent<ChallengesProviderProps> = ({
 
     setActiveChallenge(challenge);
 
-    new Audio('/notification.mp3').play();
+    // new Audio('/notification.mp3').play();
 
-    if (Notification.permission === 'granted') {
-      new Notification('New Challenge 🎉', {
-        body: `Award ${challenge.amount}xp!`
-      })
-    }
+    // if (Notification.permission === 'granted') {
+    //   new Notification('New Challenge 🎉', {
+    //     body: `Award ${challenge.amount}xp!`
+    //   })
+    // }
   }, []);
 
   const handleResetChallenge = useCallback(() => {
@@ -119,5 +119,3 @@ const ChallengesProvider: React.FunctionComponent<ChallengesProviderProps> = ({
     </ChallengesContext.Provider>
   );
 }
-
-export { ChallengesProvider }

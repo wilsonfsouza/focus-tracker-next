@@ -1,40 +1,24 @@
-import React from 'react';
-
-import { useRouter } from 'next/router';
-
-import LogoIcon from '../../assets/focus-logo.svg';
-import { FiHome, FiAward, FiSun, FiMoon, FiLogOut } from 'react-icons/fi';
-import ThemeButton from '../ThemeButton';
-import SideBarLink from '../SideBarLink';
-
+import { FiHome, FiAward, FiLogOut } from 'react-icons/fi';
+import { signOut } from 'next-auth/client';
+import { ThemeButton } from './ThemeButton';
+import { SideBarLink } from './SideBarLink';
 import { Container, TabSection, LogoutSection } from '../../styles/components/SideBar';
-import { useAuth } from '../../contexts/auth';
-import { useTheme } from '../../contexts/theme';
+import LogoIcon from '../../assets/focus-logo.svg';
 
-const SideBar: React.FunctionComponent = () => {
-  const { signOut } = useAuth();
-  const { asPath } = useRouter();
-  const { themeName, toggleTheme } = useTheme();
-
+export function SideBar() {
   return (
     <Container>
-      <LogoIcon />
+      <LogoIcon data-testid='sidebar-logo' />
 
       <TabSection>
-        <SideBarLink href="/" icon={FiHome} isActivable isActive={asPath === '/' ? true : false} />
-        <SideBarLink style={{ cursor: 'not-allowed' }} icon={FiAward} isActivable isActive={false} />
-        {themeName === 'light' ? (
-          <ThemeButton icon={FiSun} onClick={toggleTheme} />
-        ) : (
-            <ThemeButton icon={FiMoon} onClick={toggleTheme} />
-          )}
+        <SideBarLink title="Home" href="/" icon={FiHome} isActivable={true} />
+        <SideBarLink title="Stats" style={{ cursor: 'not-allowed' }} icon={FiAward} isActivable={true} />
+        <ThemeButton />
       </TabSection>
 
       <LogoutSection>
-        <SideBarLink href="/login" icon={FiLogOut} onClick={signOut} isActivable={false} />
+        <SideBarLink data-testid="signOut" title="signOut" href="/login" icon={FiLogOut} onClick={() => signOut()} />
       </LogoutSection>
     </Container>
   );
 }
-
-export default SideBar;

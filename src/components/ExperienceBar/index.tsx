@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ChallengesContext } from '../../contexts/ChallengesContext';
 
 import { Container } from '../../styles/components/ExperienceBar';
 
-const ExperienceBar: React.FunctionComponent = () => {
+export function ExperienceBar() {
   const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext);
 
   const [percentToNextLevel, setPercentToNextLevel] = useState(0);
@@ -18,12 +18,10 @@ const ExperienceBar: React.FunctionComponent = () => {
     <Container>
       <span>0 px</span>
       <div>
-        <div style={{ width: `${percentToNextLevel}%` }} />
-        <span style={{ left: `${percentToNextLevel}%` }}>{currentExperience} xp</span>
+        <div data-testid="percentToNextLevel" style={{ width: `${percentToNextLevel}%` }} />
+        <span data-testid="currentExperience" style={{ left: `${percentToNextLevel}%` }}>{currentExperience} xp</span>
       </div>
       <span>{experienceToNextLevel} xp</span>
     </Container>
   );
 };
-
-export default ExperienceBar;

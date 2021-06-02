@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useCallback, useState, useContext, ReactNode } from 'react';
+import { createContext, useEffect, useCallback, useState, useContext, ReactNode } from 'react';
 
 import Cookies from 'js-cookie';
 
@@ -16,12 +16,12 @@ interface ThemeContextData {
 
 interface ThemeProviderProps {
   children: ReactNode;
-  themeName: ThemeOptions;
+  themeName?: ThemeOptions;
 }
 
-const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
+export const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData);
 
-const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({ children, ...rest }) => {
+export function ThemeProvider({ children, ...rest }: ThemeProviderProps) {
   const [themeName, setThemeName] = useState<ThemeOptions>(rest.themeName || 'light');
 
   const toggleTheme = useCallback(() => {
@@ -47,7 +47,7 @@ const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = ({ children, 
   );
 }
 
-function useTheme(): ThemeContextData {
+export function useTheme(): ThemeContextData {
   const context = useContext(ThemeContext);
 
   if (!context) {
@@ -56,5 +56,3 @@ function useTheme(): ThemeContextData {
 
   return context
 }
-
-export { ThemeProvider, useTheme };

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CountdownContext } from '../../contexts/CountdownContext';
 
 import DoneIcon from '../../assets/icons/check_circle.svg';
 
-import TimeProgressBar from '../TimeProgressBar';
+import { TimeProgressBar } from '../TimeProgressBar';
 import { Container, CountdownContainer, CountdownButton } from '../../styles/components/Countdown';
 
-const Countdown: React.FunctionComponent = () => {
+export function Countdown() {
   const {
     minutes,
     seconds,
@@ -24,13 +24,13 @@ const Countdown: React.FunctionComponent = () => {
     <Container>
       <CountdownContainer>
         <div>
-          <span>{minuteLeft}</span>
-          <span>{minuteRight}</span>
+          <span data-testid="minuteLeft">{minuteLeft}</span>
+          <span data-testid="minuteRight">{minuteRight}</span>
         </div>
         <span>:</span>
         <div>
-          <span>{secondLeft}</span>
-          <span>{secondRight}</span>
+          <span data-testid="secondLeft">{secondLeft}</span>
+          <span data-testid="secondRight">{secondRight}</span>
         </div>
       </CountdownContainer>
 
@@ -40,21 +40,19 @@ const Countdown: React.FunctionComponent = () => {
           <DoneIcon />
         </CountdownButton>
       ) : (
-          <>
-            {isActive ? (
-              <CountdownButton isActive type="button" style={{ overflow: 'hidden', position: 'relative' }} onClick={resetCountDown}>
-                Stop
-                <TimeProgressBar />
-              </CountdownButton>
-            ) : (
-                <CountdownButton type="button" onClick={startCountDown}>
-                  Start
-                </CountdownButton>
-              )}
-          </>
-        )}
+        <>
+          {isActive ? (
+            <CountdownButton isActive type="button" style={{ overflow: 'hidden', position: 'relative' }} onClick={resetCountDown}>
+              Stop
+              <TimeProgressBar />
+            </CountdownButton>
+          ) : (
+            <CountdownButton type="button" onClick={startCountDown}>
+              Start
+            </CountdownButton>
+          )}
+        </>
+      )}
     </Container>
   );
 }
-
-export default Countdown;
