@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { ThemeProvider, ThemeOptions } from '../hooks/theme';
 import { Session } from 'next-auth/client';
 
