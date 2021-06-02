@@ -37,7 +37,7 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
         challengesCompleted: user.data.challengesCompleted,
       }
 
-      return response.status(200).json({ user: userData });
+      return response.status(200).json(userData);
 
     case 'PUT':
       session = await getSession({ req: request });
@@ -63,14 +63,14 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
 
       await fauna.query(
         query.Update(
-          query.Ref(query.Collection('users'), userRef),
+          userRef,
           {
             data: updatedUser
           }
         )
       );
 
-      return response.status(200).json({ user: updatedUser });
+      return response.status(200).json(updatedUser);
 
     default:
       response.setHeader('Allow', ['GET', 'PUT']);
