@@ -37,7 +37,14 @@ const options = {
             ),
             query.Create(
               query.Collection('users'),
-              { data: { email } }
+              {
+                data: {
+                  email,
+                  level: 1,
+                  currentExperience: 0,
+                  challengesCompleted: 0
+                }
+              }
             ),
             query.Get(
               query.Match(
