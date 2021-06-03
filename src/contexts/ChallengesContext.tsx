@@ -44,10 +44,6 @@ export function ChallengesProvider({
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
-  // useEffect(() => {
-  //   Notification.requestPermission();
-  // }, []);
-
   useEffect(() => {
     if (!isLoading) {
       const updateUserData = async () => {
@@ -80,14 +76,6 @@ export function ChallengesProvider({
     const challenge = challenges[randomChallengesIndex];
 
     setActiveChallenge(challenge);
-
-    // new Audio('/notification.mp3').play();
-
-    // if (Notification.permission === 'granted') {
-    //   new Notification('New Challenge 🎉', {
-    //     body: `Award ${challenge.amount}xp!`
-    //   })
-    // }
   }, []);
 
   const handleResetChallenge = useCallback(() => {
