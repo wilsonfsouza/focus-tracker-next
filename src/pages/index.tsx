@@ -68,7 +68,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
   const session = await getSession({ req });
 
-  const userData = await getUserData(session.user.email);
+  const userData = await getUserData(session?.user.email);
 
   if (!userData) {
     return {
