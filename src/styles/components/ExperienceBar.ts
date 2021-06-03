@@ -4,13 +4,6 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
 
-  /* -webkit-touch-callout: none;
-  -webkit-user-select: none;
-   -khtml-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; */
-
   span {
     font-size: 1.6rem;
   }
