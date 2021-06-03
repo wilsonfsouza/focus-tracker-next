@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useState, ReactNode, useEffect } from 'react';
-import Cookies from 'js-cookie';
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import { api } from '../services/api';
 
 interface IChallenge {
   type: string;
@@ -40,6 +40,7 @@ export function ChallengesProvider({
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
   const [activeChallenge, setActiveChallenge] = useState<IChallenge>(null);
   const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -48,9 +49,24 @@ export function ChallengesProvider({
   // }, []);
 
   useEffect(() => {
-    Cookies.set('level', String(level));
-    Cookies.set('currentExperience', String(currentExperience));
-    Cookies.set('challengesCompleted', String(challengesCompleted));
+    if (!isLoading) {
+      const updateUserData = async () => {
+        try {
+          await api.put('/challenges', {
+            level,
+            currentExperience,
+            challengesCompleted
+          });
+        } catch {
+          return;
+        }
+      }
+
+      updateUserData();
+    } else {
+      setIsLoading(false);
+    }
+
   }, [level, currentExperience, challengesCompleted]);
 
   const handleLevelUp = useCallback(() => {

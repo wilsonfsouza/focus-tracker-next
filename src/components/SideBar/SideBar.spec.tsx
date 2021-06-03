@@ -17,7 +17,7 @@ jest.mock('next/router', () => {
 });
 
 describe('SideBar component', () => {
-  it('should render correctly', async () => {
+  it('should render correctly', () => {
     const providerProps = {
       themeName: 'light',
     }
@@ -31,7 +31,7 @@ describe('SideBar component', () => {
     expect(screen.getByText('signOut')).toBeInTheDocument();
   });
 
-  it('should fire signOut function when the user presses signOut', async () => {
+  it('should fire signOut function when the user presses signOut', () => {
     const mockedSignOut = mocked(signOut);
 
     const providerProps = {

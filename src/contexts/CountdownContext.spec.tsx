@@ -6,7 +6,7 @@ import { CountdownContext, CountdownProvider } from './CountdownContext';
 jest.useFakeTimers();
 
 describe('CountdownContext', () => {
-  it('should initialize the context correctly', async () => {
+  it('should initialize the context correctly', () => {
     const wrapper = ({ children }) => <CountdownProvider>{children}</CountdownProvider>
     const { result } = renderHook(() => useContext(CountdownContext), {
       wrapper

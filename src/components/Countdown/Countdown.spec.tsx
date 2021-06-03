@@ -4,7 +4,7 @@ import { renderWithTheme } from '../../tests/helpers/renderWithTheme';
 import { wrapWithCountdownContext } from '../../tests/helpers/wrapWithCountdownContext';
 
 describe('Countdown component', () => {
-  it('should render the countdown with initial time when it is not active', async () => {
+  it('should render the countdown with initial time when it is not active', () => {
     const themeProviderProps = {
       themeName: 'light'
     }
@@ -39,7 +39,7 @@ describe('Countdown component', () => {
     expect(countdownProviderProps.value.startCountDown).toHaveBeenCalledTimes(1);
   });
 
-  it('should render the countdown with its finished state', async () => {
+  it('should render the countdown with its finished state', () => {
     const themeProviderProps = {
       themeName: 'light'
     }
@@ -70,7 +70,7 @@ describe('Countdown component', () => {
     expect(countdownButton).toHaveAttribute('disabled', '');
   });
 
-  it('should render the countdown with its active state', async () => {
+  it('should render the countdown with its active state', () => {
     const themeProviderProps = {
       themeName: 'light'
     }

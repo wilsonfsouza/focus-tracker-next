@@ -4,7 +4,7 @@ import { ThemeProvider } from '../../hooks/theme';
 import { renderWithChallengesContext } from '../../tests/helpers/renderWithChallengesContext';
 
 describe('TimeProgressBar component', () => {
-  it('should render correctly when time and challenge time are provided by the challenges context', async () => {
+  it('should render correctly when time and challenge time are provided by the challenges context', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {

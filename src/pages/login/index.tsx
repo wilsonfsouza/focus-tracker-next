@@ -40,6 +40,6 @@ export default function Login() {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {},
-    revalidate: 60 * 60 * 24 * 30, // 1 month
+    revalidate: 60 * 60 * 24, // 1 day
   }
 }

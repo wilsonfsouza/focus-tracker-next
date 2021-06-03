@@ -47,9 +47,9 @@ Smart.it is a web application that combines a gamified experience of the pomodor
 
 ## ⚙️ Features
 
-- Authentication using GitHub (OAuth).
+- Authentication using GitHub (Next-Auth).
 
-- Userd can level up by completing challenges.
+- Users can level up by completing challenges.
 
 - Challenges are available after a 25-minute work/study session.
 
@@ -89,7 +89,7 @@ Initial requirements:
 [git](https://git-scm.com), [yarn](https://yarnpkg.com/), and a code editor of your choice.
 
 
-#### Running the web application (Frontend)
+### Running the web application (Frontend)
 
 ```bash
 # Clone this repository
@@ -107,6 +107,18 @@ $ yarn dev
 # The application will open at port:3000 - access http://localhost:3000
 ```
 
+### Running tests
+
+```bash
+# Run tests
+$ yarn test
+
+# Generate coverage report
+$ yarn test --coverage
+
+# Clean tests cache
+$ yarn test --clearCache
+```
 ---
 
 ## 🛠 Technologies
@@ -116,7 +128,9 @@ The following tools were used in this project:
 #### **Website**  ([NextJS](https://nextjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[ReactJS](https://reactjs.org/)**
--   **[OAuth](https://next-auth.js.org/configuration/providers)**
+-   **[Next-Auth](https://next-auth.js.org/configuration/providers)**
+-   **[Axios](https://axios-http.com/)**
+-   **[Fauna DB](https://fauna.com/)**
 -   **[React Icons](https://react-icons.github.io/react-icons/)**
 -   **[Styled-components](https://styled-components.com/)**
 -   **[Jest](https://jestjs.io/)**

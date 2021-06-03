@@ -6,7 +6,7 @@ import { renderWithChallengesContext } from '../../tests/helpers/renderWithChall
 jest.useFakeTimers();
 
 describe('ExperienceBar component', () => {
-  it('should render correctly with initial animation delay', async () => {
+  it('should render correctly with initial animation delay', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {

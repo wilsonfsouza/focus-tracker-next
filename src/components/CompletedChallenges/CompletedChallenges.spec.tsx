@@ -4,7 +4,7 @@ import { ThemeProvider } from '../../hooks/theme';
 import { renderWithChallengesContext } from '../../tests/helpers/renderWithChallengesContext';
 
 describe('Completed Challenges', () => {
-  it('should render the number of completed challenges', async () => {
+  it('should render the number of completed challenges', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {

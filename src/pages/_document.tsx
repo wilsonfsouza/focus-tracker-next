@@ -34,13 +34,12 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
           <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
           <meta name="theme-color" content="#F2F3F5" />
           <meta name="description" content="Focus Tracker" />
-
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap"
-            rel="stylesheet" />
         </Head>
         <body>
           <Main />
