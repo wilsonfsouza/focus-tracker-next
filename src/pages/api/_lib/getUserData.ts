@@ -1,5 +1,6 @@
 import { fauna } from "../../../services/fauna";
 import { query } from 'faunadb';
+import AppError from "./errors/AppError";
 
 type User = {
   ref: {
@@ -23,6 +24,10 @@ export async function getUserData(email: string) {
         )
       )
     );
+
+    if (!user) {
+      throw new AppError('User does not exist.')
+    }
 
     const userData = {
       level: user.data.level,

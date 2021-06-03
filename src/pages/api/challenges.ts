@@ -2,6 +2,7 @@ import { query } from 'faunadb';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession, Session } from 'next-auth/client';
 import { fauna } from '../../services/fauna';
+import AppError from './_lib/errors/AppError';
 
 type User = {
   ref: {
@@ -31,6 +32,10 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
         )
       );
 
+      if (!user) {
+        throw new AppError('User does not exist.')
+      }
+
       const userData = {
         level: user.data.level,
         currentExperience: user.data.currentExperience,
@@ -52,6 +57,10 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             )
           ))
       );
+
+      if (!userRef) {
+        throw new AppError('User does not exist.')
+      }
 
       const { level, currentExperience, challengesCompleted } = request.body;
 

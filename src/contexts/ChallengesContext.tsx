@@ -58,7 +58,7 @@ export function ChallengesProvider({
             challengesCompleted
           });
         } catch {
-          console.log('Error while trying to update user data.')
+          return;
         }
       }
 
