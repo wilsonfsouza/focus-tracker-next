@@ -73,7 +73,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   if (!userData) {
     return {
       props: {
-        theme: theme ? theme : 'light',
+        theme: 'light',
+      },
+      redirect: {
+        destination: '/login',
+        permanent: false
       }
     }
   }
