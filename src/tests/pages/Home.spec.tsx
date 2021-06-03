@@ -1,4 +1,3 @@
-import { screen } from '@testing-library/react';
 import { mocked } from 'ts-jest/utils';
 import { getSession } from 'next-auth/client';
 import { getUserData } from '../../pages/api/_lib/getUserData';
@@ -75,6 +74,35 @@ describe('Home page', () => {
         currentExperience: 0,
         challengesCompleted: 0,
         theme: 'light'
+      }
+    }
+
+    expect(response).toEqual(
+      expect.objectContaining(expectedResponse)
+    );
+  });
+
+  it('should return theme name only when the request to get user data fails', async () => {
+    const mockedSession = mocked(getSession);
+    mockedSession.mockResolvedValueOnce({
+      user: { name: 'Jane Doe', email: 'janedoe@example.com' },
+      expires: 'fake-expires'
+    });
+
+    const mockedUserData = mocked(getUserData);
+    mockedUserData.mockResolvedValueOnce(null);
+
+    const req = { cookies: { cookies: { theme: 'light' } } }
+
+    const response = await getServerSideProps({ req } as any);
+
+    const expectedResponse = {
+      props: {
+        theme: 'light'
+      },
+      redirect: {
+        destination: '/login',
+        permanent: false
       }
     }
 
