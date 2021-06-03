@@ -48,4 +48,8 @@ export default createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  button:focus, a:focus {
+    border: 2px dashed ${props => props.theme.colors.blue300};
+  }
 `;
