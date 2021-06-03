@@ -4,7 +4,7 @@ import { ThemeProvider } from '../../hooks/theme';
 import { renderWithChallengesContext } from '../../tests/helpers/renderWithChallengesContext';
 
 describe('LevelUpModal component', () => {
-  it('should render correctly when user level up', async () => {
+  it('should render correctly when user level up', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {
@@ -21,7 +21,7 @@ describe('LevelUpModal component', () => {
     expect(screen.getByText('You reached a new level')).toBeInTheDocument();
   });
 
-  it('should fire a function to close modal when pressing the x button', async () => {
+  it('should fire a function to close modal when pressing the x button', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {

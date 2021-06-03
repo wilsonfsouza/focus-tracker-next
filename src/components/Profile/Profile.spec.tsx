@@ -4,7 +4,7 @@ import { ThemeProvider } from '../../hooks/theme';
 import { renderWithChallengesContext } from '../../tests/helpers/renderWithChallengesContext';
 
 describe('Profile component', () => {
-  it('should render correctly when user has logged in', async () => {
+  it('should render correctly when user has logged in', () => {
     const themeWrapper = ({ children }) => <ThemeProvider themeName="light">{children}</ThemeProvider>
 
     const providerProps = {

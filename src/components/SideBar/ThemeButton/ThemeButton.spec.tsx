@@ -6,7 +6,7 @@ import Themes from '../../../styles/theme';
 import { ThemeButton } from '.';
 
 describe('ThemeButton component', () => {
-  it('should render correctly when the light theme is selected', async () => {
+  it('should render correctly when the light theme is selected', () => {
     const providerProps = {
       themeName: 'light'
     }
@@ -16,7 +16,7 @@ describe('ThemeButton component', () => {
     expect(screen.getByText('Light')).toBeInTheDocument();
   });
 
-  it('should render correctly when the dark theme is selected', async () => {
+  it('should render correctly when the dark theme is selected', () => {
     const providerProps = {
       themeName: 'dark',
     }
@@ -26,7 +26,7 @@ describe('ThemeButton component', () => {
     expect(screen.getByText('Dark')).toBeInTheDocument();
   });
 
-  it('should fire toggleTheme function when button is clicked', async () => {
+  it('should fire toggleTheme function when button is clicked', () => {
     const themeName = 'light';
     const theme = Themes.light;
     const toggleTheme = jest.fn();

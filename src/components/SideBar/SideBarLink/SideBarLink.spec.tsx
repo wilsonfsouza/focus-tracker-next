@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import React from 'react';
 import { FiHome } from 'react-icons/fi';
 import { SideBarLink } from '.';
@@ -15,7 +15,7 @@ jest.mock('next/router', () => {
 });
 
 describe('SideBarLink component', () => {
-  it('should render a non-activable link correctly', async () => {
+  it('should render a non-activable link correctly', () => {
     const providerProps = {
       themeName: 'light'
     }
@@ -25,7 +25,7 @@ describe('SideBarLink component', () => {
     expect(screen.getByText('Test')).toBeInTheDocument();
   });
 
-  it('should render an activable link that is active correctly', async () => {
+  it('should render an activable link that is active correctly', () => {
     const providerProps = {
       themeName: 'light'
     }

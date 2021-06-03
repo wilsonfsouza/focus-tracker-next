@@ -46,7 +46,7 @@ describe('withAuth high order component', () => {
     expect(signInMocked).toHaveBeenCalledTimes(1);
   });
 
-  it('should render the loading page when veryfing user credentials', async () => {
+  it('should render the loading page when veryfing user credentials', () => {
     const useSessionMocked = mocked(useSession);
     useSessionMocked.mockReturnValueOnce([
       {
@@ -61,7 +61,7 @@ describe('withAuth high order component', () => {
     expect(screen.getByTestId('loadingBar')).toBeInTheDocument();
   });
 
-  it('should render the dashboard page when user has valid credentials', async () => {
+  it('should render the dashboard page when user has valid credentials', () => {
     const useSessionMocked = mocked(useSession);
     useSessionMocked.mockReturnValueOnce([
       {
