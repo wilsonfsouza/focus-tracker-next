@@ -5,7 +5,6 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: 0;
   }
 
   html {
@@ -47,9 +46,5 @@ export default createGlobalStyle`
   a:active {
     color: inherit;
     text-decoration: none;
-  }
-
-  button:focus, a:focus {
-    border: 2px dashed ${props => props.theme.colors.blue300};
   }
 `;
