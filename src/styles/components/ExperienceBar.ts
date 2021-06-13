@@ -32,7 +32,7 @@ export const Container = styled.header`
       top: 3rem;
       transform: translateX(-50%);
       transition: left 0.5s ease;
-      width: fit-content;
+      width: max-content;
 
       display: flex;
       align-items: center;
